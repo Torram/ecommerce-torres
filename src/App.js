@@ -1,10 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/Navbar/NavBar';
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <NavBar/>
+      <ItemListContainer greeting = "Bienvenido visitante."/>
     </div>
   );
 }

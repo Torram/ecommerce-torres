@@ -1,13 +1,23 @@
-import "./Navbar.css";
+import { Navbar, Nav, Container} from "react-bootstrap";
+import CartWidget from "../CartWidget/CartWidget";
 
-const Navbar = () => {
+const NavBar = () => {
     return (
-        <nav className="navbar">
-            <h1>My App</h1>
-            <button>boton 1</button>
-            <button>boton 2</button>
-            
-        </nav>
+        <Navbar bg="dark" variant="dark">
+            <Container fluid>
+                <Nav
+                    className="me-auto my-2 my-lg-0"
+                    style={{maxHeight:'100px'}}
+                >
+                <Navbar.Brand href = "#home">Torres E-Shop</Navbar.Brand>
+                <Nav.Link href="#home">Inicio</Nav.Link>
+                <Nav.Link href="#celulares">Celulares</Nav.Link>
+                <Nav.Link href="#tablets">Tablets</Nav.Link>
+                <Nav.Link href="#accesorios">Accesorios</Nav.Link>
+                </Nav>
+            </Container>
+            <CartWidget/>
+        </Navbar>
     )
 }
-export default Navbar;
+export default NavBar;
