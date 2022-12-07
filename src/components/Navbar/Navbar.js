@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container} from "react-bootstrap";
 import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
@@ -9,11 +10,11 @@ const NavBar = () => {
                     className="me-auto my-2 my-lg-0"
                     style={{maxHeight:'100px'}}
                 >
-                <Navbar.Brand href = "#home">Torres E-Shop</Navbar.Brand>
-                <Nav.Link href="#home">Inicio</Nav.Link>
-                <Nav.Link href="#celulares">Celulares</Nav.Link>
-                <Nav.Link href="#tablets">Tablets</Nav.Link>
-                <Nav.Link href="#accesorios">Accesorios</Nav.Link>
+                <Link className="navbar-brand" to={'/'}>Torres E-Shop</Link>
+                <Link className="nav-link" to={'/'}>Inicio</Link>
+                <Link className="nav-link" to={'/category/celulares'}>Celulares</Link>
+                <Link className="nav-link" to={'/category/tablets'}>Tablets</Link>
+                <Link className="nav-link" to={'/category/accesorios'}>Accesorios</Link>
                 </Nav>
             </Container>
             <CartWidget/>
