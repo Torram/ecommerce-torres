@@ -25,7 +25,7 @@ const ItemDetail = ({item}) => {
     useEffect(() => {
         if(isInCart(id))
             setIsAdded(true);
-    }, [id, quantity])
+    }, [id])
     
     return(
     <>

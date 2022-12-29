@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../elements/Loading"
-import CheckoutList from "../checkout/CheckoutList";
 import { getDoc, doc} from "firebase/firestore";
 import { db } from "../../services/firebase/firebaseConfig";
 import { Alert, Col, Row } from "react-bootstrap";

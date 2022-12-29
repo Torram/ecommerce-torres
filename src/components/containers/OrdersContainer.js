@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { db } from "../../services/firebase/firebaseConfig";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import Loading from "../elements/Loading";
 import { Link, useParams } from "react-router-dom";

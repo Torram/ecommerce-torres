@@ -5,7 +5,7 @@ import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 
 const NavBar = () => {
-    const { cartList, getQuantity } = useContext(CartContext);
+    const { getQuantity } = useContext(CartContext);
 
     const totalQuantity = getQuantity();
     return (
