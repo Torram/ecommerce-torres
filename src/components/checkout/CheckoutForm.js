@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Alert, Form } from "react-bootstrap"
 
-const CheckoutForm = ({user, setUser, setValidEmail}) => {
+const CheckoutForm = ({user, setUser}) => {
     const [tempEmail, setTempEmail] = useState("");
     const [tempEmail2, setTempEmail2] = useState(""); //Para control interno del Alert
 
@@ -18,11 +18,9 @@ const CheckoutForm = ({user, setUser, setValidEmail}) => {
     const setEmail = (e) => {
         
         if(tempEmail===e.target.value){
-            setValidEmail(true);
             setUser({...user,email:e.target.value})
         }
         else{
-            setValidEmail(false);
             setUser({...user,email:""})
         }
         setTempEmail2(e.target.value)

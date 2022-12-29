@@ -27,7 +27,7 @@ const OrderDetailContainer = () => {
 
     return(
         <>
-            <h1>Order {id}</h1>
+            <h1>Orden {id}</h1>
             {console.log(Object.keys(order))}
             <hr/>
             {loading?<Loading/>:Object.keys(order).length>1?
@@ -35,12 +35,12 @@ const OrderDetailContainer = () => {
                 <Col className="border">
                     <Row>
                         <Col>
-                            <p className="fw-bold">Order Date:</p>
+                            <p className="fw-bold">Fecha de la Orden:</p>
                             {order?.date}
                         </Col>
                         <Col>
-                            <p className="fw-bold">Customer:</p>
-                            {order?.buyer?.name}
+                            <p className="fw-bold">Cliente:</p>
+                            {order?.buyer?.name} {order?.buyer?.lname}
                         </Col>
                         <Col>
                             <p className="fw-bold">Total:</p>
@@ -50,9 +50,9 @@ const OrderDetailContainer = () => {
                 </Col>
                 <Col>
                     <Row>
-                        <Col className="fw-bold">Product</Col>
-                        <Col className="fw-bold">Quantity</Col>
-                        <Col className="fw-bold">Price</Col>
+                        <Col className="fw-bold">Producto</Col>
+                        <Col className="fw-bold">Cantidad</Col>
+                        <Col className="fw-bold">Precio</Col>
                     </Row>
                     {order?.items?.map((item)=>{
                         return( 
@@ -65,9 +65,9 @@ const OrderDetailContainer = () => {
                     })}
                 </Col>
             </Row>
-            :<Alert variant = {"danger"}>Order not found</Alert>
+            :<Alert variant = {"danger"}>No se econtró la orden</Alert>
             }
-            <Link to = "/orders" className="btn btn-primary">Return to orders</Link>
+            <Link to = "/orders" className="btn btn-primary">Regresar a ordenes</Link>
         </>
     )
 }

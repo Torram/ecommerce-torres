@@ -31,17 +31,17 @@ const OrdersContainer = () => {
                 <h3>Orders</h3>
                 <Row>
                     <Col className="fw-bold">Id</Col>
-                    <Col className="fw-bold">Name</Col>
-                    <Col className="fw-bold">Date</Col>
+                    <Col className="fw-bold">Cliente</Col>
+                    <Col className="fw-bold">Fecha</Col>
                     <Col className="fw-bold">Total</Col>
                 </Row>
                 {loading?<Loading/>:
                 orders?.map((order)=>{
                     return <Row key={order.id}>
                         <Col><Link to={"/orders/"+order.id}>{order.id}</Link></Col>
-                        <Col>{order.buyer.name}</Col>
-                        <Col>{order.date}</Col>
-                        <Col>${order.total.toFixed(2)} USD</Col>
+                        <Col>{order?.buyer?.name} {order?.buyer?.lname}</Col>
+                        <Col>{order?.date}</Col>
+                        <Col>${order?.total.toFixed(2)} USD</Col>
                         <hr/>
                     </Row>
                 })}
