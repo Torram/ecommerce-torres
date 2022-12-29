@@ -1,11 +1,6 @@
-import ItemCount from "../ItemCount/ItemCount";
 import { Link } from "react-router-dom";
 
 const Item = ({item}) => {
-
-    const handleOnAdd = (quantity) => {
-        alert("Se agregaron " + quantity + " elementos al carrito.");
-    }
 
     return (
     <div className="card m-1" style={{width:"18rem"}}>
@@ -13,9 +8,8 @@ const Item = ({item}) => {
         <div className="card-body mx-auto">
             <br/>
             <h5 className="card-title">{item.title}</h5>
-            <p>{item.price}</p>
+            <p>${item.price.toFixed(2)}</p>
             <Link to={"/item/"+item.id} className="btn btn-primary">Detalles</Link>
-            <ItemCount initial={0} stock = {10} onAdd={handleOnAdd}/>
         </div>
     </div>)
 }

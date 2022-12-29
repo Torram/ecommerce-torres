@@ -1,19 +1,30 @@
 import './App.css';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/Navbar/Navbar';
+import ItemDetailContainer from './components/containers/ItemDetailContainer';
+import ItemListContainer from './components/containers/ItemListContainer';
+import CartContainer from './components/containers/CartContainer';
+import CheckoutContainer from './components/containers/CheckoutContainer';
+import OrdersContainer from './components/containers/OrdersContainer';
+import OrderDetailContainer from './components/containers/OrderDetailContainer';
+import NavBar from './components/elements/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
     <div className='App'>
       <BrowserRouter>
-        <NavBar/>
-        <Routes>
-          <Route exact path="/" element={<ItemListContainer greeting = "Bienvenido visitante"/>} />
-          <Route exact path="/category/:categoryid" element={<ItemListContainer greeting = "Bienvenido visitante"/>} />
-          <Route exact path="/item/:id" element={<ItemDetailContainer/>} />      
-        </Routes>
+        <CartProvider>
+          <NavBar/>
+            <Routes>
+              <Route exact path="/" element={<ItemListContainer greeting = "Bienvenido visitante"/>} />
+              <Route exact path="/category/:categoryid" element={<ItemListContainer greeting = "Bienvenido visitante"/>} />
+              <Route exact path="/item/:id" element={<ItemDetailContainer/>} />    
+              <Route exact path="/cart" element={<CartContainer/>}/>  
+              <Route exact path="/checkout" element={<CheckoutContainer/>}/>
+              <Route exact path="/orders" element={<OrdersContainer/>}/>
+              <Route exact path="/orders/:id" element={<OrderDetailContainer/>}/>
+            </Routes>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );

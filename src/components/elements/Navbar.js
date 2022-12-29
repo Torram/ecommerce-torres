@@ -1,8 +1,13 @@
 import { Navbar, Nav, Container} from "react-bootstrap";
-import CartWidget from "../CartWidget/CartWidget";
+import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+import { useContext } from "react";
 
 const NavBar = () => {
+    const { cartList, getQuantity } = useContext(CartContext);
+
+    const totalQuantity = getQuantity();
     return (
         <Navbar bg="dark" variant="dark">
             <Container fluid>
@@ -17,7 +22,8 @@ const NavBar = () => {
                 <Link className="nav-link" to={'/category/accesorios'}>Accesorios</Link>
                 </Nav>
             </Container>
-            <CartWidget/>
+            <Link className="navbar-brand" to={'/orders'}>Ordenes</Link>
+            <CartWidget quantity = {totalQuantity}/>
         </Navbar>
     )
 }
